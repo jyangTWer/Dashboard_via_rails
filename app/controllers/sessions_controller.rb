@@ -23,7 +23,16 @@ class SessionsController < ApplicationController
 			render 'new'
 		end
 	end
-	
+
+	def update
+		@session = Session.find(params[:id])
+		if @session.update(session_params)
+			redirect_to @session
+		else
+			render 'edit'
+		end
+	end
+
 	private
 		def session_params
 			params.require(:session).permit(:title, :text)
