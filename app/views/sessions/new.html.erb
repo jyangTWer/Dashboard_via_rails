@@ -1,0 +1,20 @@
+<h1>New Session</h1>
+
+<%=  form_for :session, url: sessions_path do |f| %>
+    <p>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <% if @session.errors.any? %>
+			<span><%= @session.errors.full_messages[0] %></span>
+        <% end %>
+    </p>
+    <p>
+        <%= f.label :text %>
+        <%= f.text_area :text %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>    
+<% end %>
+
+<%= link_to 'Back', sessions_path %>

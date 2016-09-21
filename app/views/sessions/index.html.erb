@@ -1,0 +1,16 @@
+<h1>Listing sessions</h1>
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Text</th>
+	</tr>
+	<%= @sessions.each do |session| %>
+		<tr>
+			<td><%= session.title %></td>
+			<td><%= session.text %></td>
+			<td><%= link_to 'Show', session_path(session) %></td>
+			<td><%= link_to 'Edit', edit_session_path(session) %></td>
+		</tr>
+	<% end %>
+</table>
+<%= link_to 'New Session', new_session_path %>
