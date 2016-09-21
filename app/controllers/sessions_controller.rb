@@ -11,6 +11,10 @@ class SessionsController < ApplicationController
 		@session = Session.new
 	end
 
+	def edit
+		@session = Session.find(params[:id])
+	end
+
 	def create
 		@session = Session.new(session_params)
 		if @session.save
